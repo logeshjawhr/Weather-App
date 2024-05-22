@@ -16,11 +16,14 @@ async function checkWeather(city){
     else{
 
         var data = await response.json();
-        // console.log(data);
+        console.log(data);
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = data.main.temp+"ºc";
         document.querySelector(".humidity").innerHTML = data.main.humidity+"%";
         document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+        document.querySelector(".main").innerHTML = data.weather[0].main
+        document.querySelector(".description").innerHTML = data.weather[0].description
+
     
         if(data.weather[0].main == "Clouds"){
            weatherIcon.src = "img/images/clouds.png"
